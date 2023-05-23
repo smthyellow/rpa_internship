@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Curr</title>
+</head>
+<body>
+<h1>Daily rates</h1>
+<a th:href="@{/}">Home page</a>
+<span th:utext="${curId}"></span>
+<h3>Select currency</h3>
+<form name="abbreviation"  method="post">
+<select class="form-control" id="abbreviation" name="abbreviation">
+    <option value="0">select option</option>
+    <option th:each="option : ${currencyAbbreviations}" th:value="${option}" th:text="${option}"></option>
+</select>
+    <h3>Select start date</h3>
+    <input type="date" id="start" name="start"
+           value="2022-12-01"
+           min="2022-12-01" max="2023-05-23">
+    <h3>Select end date</h3>
+    <input type="date" id="end" name="end"
+           value="2023-05-23"
+           min="2022-12-01" max="2023-05-23">
+    <button type="submit">Load rates</button>
+</form>
+<p th:text="${error}"></p>
+<div th:each="option : ${rates}" th:value="${option}" th:text="${option}">
+
+</div>
+
+</body>
+</html>

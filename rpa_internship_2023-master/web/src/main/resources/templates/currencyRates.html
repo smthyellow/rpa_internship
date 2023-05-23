@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency rates</title>
+</head>
+<body>
+<h1>Currency rates</h1>
+<a th:href="@{/}">Home page</a>
+<form name="abbreviation"  method="post">
+    <select class="form-control" id="abbreviation" name="abbreviation">
+        <option value="0">select option</option>
+        <option th:each="option : ${savedRates}" th:value="${option}" th:text="${option}"></option>
+    </select>
+    <button type="submit">Load rates</button>
+</form>
+<div th:each="option : ${rates}" th:value="${option}" th:text="${option}">
+</body>
+</html>

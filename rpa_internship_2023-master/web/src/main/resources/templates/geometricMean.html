@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geometric mean</title>
+</head>
+<body>
+<h1>Geometric mean</h1>
+<a th:href="@{/}">Home page</a>
+<h4>This section is in progress. Inaccuracies is possible.</h4>
+<form name="geometricmean"  method="post">
+    <select class="form-control" id="abbreviation" name="abbreviation">
+        <option value="0">select option</option>
+        <option th:each="option : ${savedRates}" th:value="${option}" th:text="${option}"></option>
+    </select>
+    <select class="form-control" id="month" name="month">
+        <option value="12">December</option>
+        <option value="01">January</option>
+        <option value="02">February</option>
+        <option value="03">March</option>
+        <option value="04">April</option>
+        <option value="05">May</option>
+    </select>
+    <button type="submit">Load rates</button>
+</form>
+<p><span th:text="${geometricMeanText}"></span></p>
+</body>
+</html>
